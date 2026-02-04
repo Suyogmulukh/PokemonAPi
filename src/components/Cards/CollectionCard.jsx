@@ -32,7 +32,13 @@ const CollectionCard = memo(({ item }) => {
         {!loaded && (
           <div className="absolute inset-0 bg-gray-300 animate-pulse" />
         )}
-
+        <button
+            onClick={removeFromCollection}
+            className="absolute top-2 right-2 bg-indigo-600 px-2 sm:px-3 py-1 text-xs sm:text-sm rounded hover:bg-indigo-700 active:scale-95 transition"
+          >
+            Remove
+        </button>
+        
         {isVisible && (
           <img
             src={item.src}
@@ -47,12 +53,6 @@ const CollectionCard = memo(({ item }) => {
           <h2 className="text-xs sm:text-sm font-semibold truncate bg-gray-600 bg-linear-to-t from-black/70 to-transparent rounded-3xl px-2 sm:px-3 py-1">
             {item.title}
           </h2>
-          <button
-            onClick={removeFromCollection}
-            className="bg-indigo-600 px-2 sm:px-3 py-1 text-xs sm:text-sm rounded hover:bg-indigo-700 active:scale-95 transition"
-          >
-            Remove
-          </button>
         </div>
       </div>
 

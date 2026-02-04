@@ -11,11 +11,9 @@ export const pokimonApi = async (query) => {
   }
 };
 
-export const fetchRandomPokemons = async (count = 10) => {
+export const fetchRandomPokemons = async (count = 12) => {
   try {
-    const randomIds = Array.from(
-      { length: count },
-      () => Math.floor(Math.random() * 898) + 1,
+    const randomIds = Array.from({ length: count },() => Math.floor(Math.random() * 898) + 1,
     );
     const pokemonPromises = randomIds.map((id) =>
       axios.get(`${POKIMONAPI}/pokemon/${id}`),
@@ -27,7 +25,7 @@ export const fetchRandomPokemons = async (count = 10) => {
   }
 };
 
-export const fetchPaginatedPokemons = async (page = 1, limit = 10) => {
+export const fetchPaginatedPokemons = async (page = 1, limit = 12) => {
   try {
     const offset = (page - 1) * limit;
     const res = await axios.get(
@@ -43,7 +41,7 @@ export const fetchPaginatedPokemons = async (page = 1, limit = 10) => {
   }
 };
 
-export const fetchPokemonsByType = async (typeName, page = 1, limit = 10) => {
+export const fetchPokemonsByType = async (typeName, page = 1, limit = 12) => {
   try {
     const res = await axios.get(`${POKIMONAPI}/type/${typeName.toLowerCase()}`);
     const allPokemon = res.data.pokemon.map((p) => p.pokemon);

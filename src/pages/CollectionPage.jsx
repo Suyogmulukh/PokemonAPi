@@ -11,7 +11,9 @@ const CollectionPage = memo(() => {
     <div className="overflow-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-6">
       {collection.length > 0 ? (
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-center sm:text-left">Your Collection</h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium text-center sm:text-left">
+            Your Collection
+          </h2>
           <button
             onClick={() => dispatch(clearCollection())}
             className="active:scale-95 transition cursor-pointer bg-red-600 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg  font-medium rounded hover:bg-red-700"
@@ -24,13 +26,14 @@ const CollectionPage = memo(() => {
           Collection is Empty
         </h2>
       )}
-
-      <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-        {collection.map((item) => (
-          <div key={item.id} className="animate-fadeIn">
-            <CollectionCard item={item} />
-          </div>
-        ))}
+      <div className="flex-1 overflow-y-auto">
+        <div className="w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 gap-6 px-8 sm:px-6 lg:px-10 py-6">
+          {collection.map((item) => (
+            <div key={item.id} className="animate-fadeIn">
+              <CollectionCard item={item} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

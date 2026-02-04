@@ -102,7 +102,7 @@ const SearchBar = () => {
       </button>
 
       {open && (
-        <ul className="absolute z-50 mt-1 w-full bg-gray-700 text-white rounded-lg shadow-lg max-h-52 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <ul className="absolute z-50 w-full bg-gray-700 text-white rounded-lg shadow-lg max-h-52 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {POKEMON_TYPES.map((opt) => (
             <li
               key={opt.label}
